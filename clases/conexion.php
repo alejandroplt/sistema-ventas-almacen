@@ -15,10 +15,4 @@
         }
 
     }
-
-    $obj = new conectar();
-    if($obj->conexion()){
-        echo "conectado";
-    }
-
 ?>
