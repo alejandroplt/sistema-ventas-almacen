@@ -29,7 +29,7 @@
                               <label>Password</label>
                               <input type="text" class="form-control input-sm" name="" id="password">
                               <p></p>
-                              <span class="btn btn-primary">Registrar</span>
+                              <span class="btn btn-primary" id="registro">Registrar</span>
                               <a href="index.php" class="btn btn-default"> Regresar</a>
                           </form>
                       </div>
@@ -38,5 +38,32 @@
               <div class="col-sm-4"></div>
           </div>
       </div>
+
+      <script src="librerias/jquery-3.2.1.min.js"></script>
+      <script src="js/funciones.js"></script>
   </body>
 </html>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#registro').click(function(){
+
+            vacios=validarFormVacio('frmRegistro');
+
+            if(vacios > 0){
+                alert("Debes llenar todos los campos");
+                return false;
+            }
+
+            datos=$('#frmRegistro').serialize();
+            $.ajax({
+                type:"POST",
+                data:datos,
+                url:"procesos/regLogin/registrarUsuario.php",
+                success:function(r){
+
+                }
+            });
+        });
+    });
+</script>
