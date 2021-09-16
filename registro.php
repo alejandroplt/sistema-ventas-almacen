@@ -21,13 +21,13 @@
                       <div class="panel panel-body">
                           <form id="frmRegistro">
                               <label>Nombre</label>
-                              <input type="text" class="form-control input-sm" name="" id="nombre">
+                              <input type="text" class="form-control input-sm" name="nombre" id="nombre">
                               <label>Apellido</label>
-                              <input type="text" class="form-control input-sm" name="" id="apellido">
+                              <input type="text" class="form-control input-sm" name="apellido" id="apellido">
                               <label>Usuario</label>
-                              <input type="text" class="form-control input-sm" name="" id="usuario">
+                              <input type="text" class="form-control input-sm" name="usuario" id="usuario">
                               <label>Password</label>
-                              <input type="text" class="form-control input-sm" name="" id="password">
+                              <input type="text" class="form-control input-sm" name="password" id="password">
                               <p></p>
                               <span class="btn btn-primary" id="registro">Registrar</span>
                               <a href="index.php" class="btn btn-default"> Regresar</a>
@@ -61,6 +61,11 @@
                 data:datos,
                 url:"procesos/regLogin/registrarUsuario.php",
                 success:function(r){
+                    if(r==1){
+                        alert("Agregado con exito");
+                    }else{
+                        alert("Fallo al agregar");
+                    }
 
                 }
             });

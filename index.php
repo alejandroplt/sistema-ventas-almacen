@@ -31,7 +31,7 @@
                               <input type="password" name="password" id="password" 
                               class="form-control input-sm">
                               <p></p>
-                              <scan class="btn btn-primary btn-sm">Entrar</scan>
+                              <scan class="btn btn-primary btn-sm" id="entrarSistema">Entrar</scan>
                               <a href="registro.php" class="btn btn-danger btn-sm">Registrar</a>
                             </form>
                         </div>
