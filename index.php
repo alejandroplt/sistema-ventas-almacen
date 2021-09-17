@@ -25,11 +25,9 @@
                             </p>
                             <form id="frmLogin">
                               <label>Usuario:</label>
-                              <input type="text" class="form-control input-sm"
-                              name="usuario" id="usuario">
+                              <input type="text" class="form-control input-sm" name="usuario" id="usuario">
                               <label>Password</label>
-                              <input type="password" name="password" id="password" 
-                              class="form-control input-sm">
+                              <input type="password" class="form-control input-sm" name="password" id="password">
                               <p></p>
                               <scan class="btn btn-primary btn-sm" id="entrarSistema">Entrar</scan>
                               <a href="registro.php" class="btn btn-danger btn-sm">Registrar</a>
@@ -42,6 +40,36 @@
       </div>
 
     <script src="librerias/jquery-3.2.1.min.js"></script>
-
+    <script src="js/funciones.js"></script>
   </body>
 </html>
+
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('#entrarSistema').click(function(){
+
+          vacios=validarFormVacio('frmLogin');
+
+          if(vacios > 0){
+            alert("Debes llenar todos los campos");
+            return false;
+          }
+          
+          datos=$('#frmLogin').serialize();
+          $.ajax({
+            type:"POST",
+            data:datos,
+            url:"procesos/regLogin/login.php",
+            success:function(r){
+
+              if(r==1){
+                window.location="vistas/inicio.php";
+              }else{
+                alert("Usuario o contraseña incorrectos");
+              }
+            }
+          });
+        });
+      });
+
+</script>
