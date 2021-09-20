@@ -26,8 +26,11 @@
         public function loginUser($datos){
             $c= new conectar();
             $conexion=$c->conexion();
-
             $password=sha1($datos[1]);
+
+            //SESION DE ID
+            $_SESSION['usuario']=$datos[0];
+            $_SESSION['iduser']=self::traerID($datos);
 
             $sql="SELECT * from usuarios where email='$datos[0]' and password='$password'";
             $result=mysqli_query($conexion,$sql);
@@ -38,7 +41,20 @@
                 return 0;
             }
         }
+
+        //FUNCION PARA EXTRAER EL ID
+        public function traerID($datos){
+            $c=new conectar();
+            $conexion=$c->conexion();
+
+            $password=sha1($datos[1]);
+
+            $sql="SELECT id_usuario from usuarios where email='$datos[0]' and password='$password'";
+
+            $result=mysqli_query($conexion,$sql);
+
+            //ESTO EXTRAER EL PRIMER ELEMENTO DEL ARREGLO
+            return mysqli_fetch_row($result)[0];
+        }
     }
-
-
 ?>

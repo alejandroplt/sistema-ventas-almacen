@@ -1,3 +1,17 @@
+<?php
+  require_once "clases/conexion.php";
+  $obj= new conectar();
+  $conexion=$obj->conexion();
+
+  $sql="SELECT * from usuarios where email='admin123'";
+  $result=mysqli_query($conexion,$sql);
+
+  $validar=0;
+  if(mysqli_num_rows($result) > 0){
+      header("location:index.php");//SI YA EXISTE UN ADMIN YA NO SE PODRA VER EL FORMULARIO DE REGISTRO
+    }
+?>
+
 <!doctype html>
 <html lang="es">
   <head>

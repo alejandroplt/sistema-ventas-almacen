@@ -1,3 +1,18 @@
+<?php
+  require_once "clases/conexion.php";
+  $obj= new conectar();
+  $conexion=$obj->conexion();
+
+  $sql="SELECT * from usuarios where email='admin123'";
+  $result=mysqli_query($conexion,$sql);
+
+  $validar=0;
+  if(mysqli_num_rows($result) > 0){
+    $validar=1;
+  }
+
+?>
+
 <!doctype html>
 <html lang="es">
   <head>
@@ -29,8 +44,10 @@
                               <label>Password</label>
                               <input type="password" class="form-control input-sm" name="password" id="password">
                               <p></p>
-                              <scan class="btn btn-primary btn-sm" id="entrarSistema">Entrar</scan>
+                              <span class="btn btn-primary btn-sm" id="entrarSistema">Entrar</span>
+                              <?php if(!$validar): ?>
                               <a href="registro.php" class="btn btn-danger btn-sm">Registrar</a>
+                              <?php endif; ?>
                             </form>
                         </div>
                   </div>
@@ -54,7 +71,7 @@
             alert("Debes llenar todos los campos");
             return false;
           }
-          
+
           datos=$('#frmLogin').serialize();
           $.ajax({
             type:"POST",
