@@ -5,11 +5,14 @@
 
 ?>
 
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>Iniciar</title>
+    <title>Ventas</title>
     <?php require_once "menu.php"; ?>
 </head>
 

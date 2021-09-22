@@ -5,11 +5,12 @@
 
 ?>
 
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <title>Iniciar</title>
+    <title>Categorias</title>
     <?php require_once "menu.php"; ?>
 </head>
 
