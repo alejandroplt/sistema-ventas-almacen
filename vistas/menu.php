@@ -18,7 +18,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>  
                     </button>
                     <a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail"
                             src="../img/ventas.jpg" alt="" width="150px" height="150px"></a>

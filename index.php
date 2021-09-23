@@ -1,3 +1,4 @@
+<!-- Si el usuario admin123 ya esta registrado el boton de registrar desaparece -->
 <?php
   require_once "clases/conexion.php";
   $obj= new conectar();
@@ -45,6 +46,7 @@
                               <input type="password" class="form-control input-sm" name="password" id="password">
                               <p></p>
                               <span class="btn btn-primary btn-sm" id="entrarSistema">Entrar</span>
+                              <!-- VALIDACION DEL BOTON REGISTRAR -->
                               <?php if(!$validar): ?>
                               <a href="registro.php" class="btn btn-danger btn-sm">Registrar</a>
                               <?php endif; ?>

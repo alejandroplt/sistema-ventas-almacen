@@ -1,26 +1,27 @@
-<?php
+  
+  <!--Se inicia sesion siempre y cuando algun usuario se haya logeado de lo contrario se va al index -->
+  <?php 
+	session_start();
+	if(isset($_SESSION['usuario'])){
+ ?>
 
-    session_start();
-    if(isset($_SESSION['usuario'])){
 
-?>
+  <!DOCTYPE html>
+  <html>
 
-<!DOCTYPE html>
-<html lang="es">
+  <head>
+      <title>inicio</title>
+      <?php require_once "menu.php"; ?>
+  </head>
 
-<head>
-    <title>Iniciar</title>
-    <?php require_once "menu.php"; ?>
-</head>
+  <body>
 
-<body>
 
-</body>
+  </body>
 
-</html>
-
-<?php
-    }else{
-        header("../index.php");
-    }
-?>
+  </html>
+  <?php 
+	}else{
+		header("location:../index.php");
+	}
+ ?>
