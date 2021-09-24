@@ -8,12 +8,14 @@
     <tr>
         <td></td>
         <td>
-            <span class="btn btn-warning btn-sm"></span>
-            <span class="glyphicon glyphicon-pencil"></span>
+            <span class="btn btn-warning btn-sm">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </span>
         </td>
         <td>
-            <span class="btn btn-warning btn-sm"></span>
-            <span class="glyphicon glyphicon-remove"></span>
+            <span class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-remove"></span>
+            </span>
         </td>
     </tr>
 </table>

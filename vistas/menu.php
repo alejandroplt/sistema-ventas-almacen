@@ -18,7 +18,7 @@
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>  
+                        <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="inicio.php"><img class="img-responsive logo img-thumbnail"
                             src="../img/ventas.jpg" alt="" width="150px" height="150px"></a>
@@ -55,7 +55,7 @@
                             <a href="#" style="color: red" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="glyphicon glyphicon-user">
-                                  </span> Usuario: <span class="caret"></span></a>
+                                </span> Usuario: <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li> <a style="color: red" href="../procesos/salir.php"><span
                                             class="glyphicon glyphicon-off"></span> Salir</a></li>
@@ -76,11 +76,11 @@
 
 <script type="text/javascript">
 $(window).scroll(function() {
-            if ($(document).scrollTop() > 150) {
-                alert('hi');
-                $('.logo').height(200);
+    if ($(document).scrollTop() > 150) {
+        $('.logo').height(200);
 
-            } else {
-                $('.logo').height(100);
-            });
+    } else {
+        $('.logo').height(100);
+    }
+});
 </script>
