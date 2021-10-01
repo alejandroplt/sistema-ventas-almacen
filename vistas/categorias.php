@@ -15,6 +15,7 @@
 
 <body>
     <div class="container">
+        <h1>Categorias</h1>
         <div class="row">
             <div class="col-sm-4">
                 <form id="frmCategorias">
@@ -24,7 +25,7 @@
                     <span class="btn btn-primary" id="btnAgregarCategoria">Agregar</span>
                 </form>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-6">
                 <div id="tablaCategoriaLoad"></div>
             </div>
         </div>
