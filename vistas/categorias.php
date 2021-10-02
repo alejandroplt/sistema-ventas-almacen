@@ -37,7 +37,7 @@
 </html>
 
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function() {
 
     $('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");
 
@@ -46,7 +46,7 @@ $(document).ready(function(){
         vacios = validarFormVacio('frmCategorias');
 
         if (vacios > 0) {
-            alertify.alert("Mensaje","Debes llenar todos los campos");
+            alertify.alert("Mensaje", "Debes llenar todos los campos");
             return false;
         }
 
