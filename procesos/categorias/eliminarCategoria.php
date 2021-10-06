@@ -3,11 +3,9 @@
     require_once "../../clases/conexion.php";
     require_once "../../clases/categorias.php";
 
-    $_POST['idcategoria'];
-    $_POST['categoriaU'];
+    $id=$_POST['idcategoria'];
 
     $obj= new categorias();
-    
-
+    echo $obj->eliminaCategoria($id);
 
 ?>

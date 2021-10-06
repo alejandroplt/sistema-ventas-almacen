@@ -31,7 +31,7 @@
             </span>
         </td>
         <td>
-            <span class="btn btn-danger btn-xs">
+            <span class="btn btn-danger btn-xs" onclick="eliminaCategoria('<?php echo $ver[0] ?>', '<?php echo $ver[1] ?>')">
                 <span class="glyphicon glyphicon-remove"></span>
             </span>
         </td>
