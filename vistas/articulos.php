@@ -14,6 +14,12 @@
 <head>
     <title>Articulos</title>
     <?php require_once "menu.php"; ?>
+    <?php require_once "../clases/conexion.php";
+        $c=new conectar();
+        $conexion=$c->conexion();
+        $sql="SELECT id_categoria,nombreCategoria from categorias";
+        $result=mysqli_query($conexion,$sql);
+    ?>
 </head>
 
 <body>
@@ -21,10 +27,14 @@
         <h1>Articulos</h1>
         <div class="row">
             <div class="col-sm-4">
-                <form id="frmArticulos" enctype="multipart/form-data"><!-- enctype="multipart/form-data"  esto permite enviar archivos-->
+                <form id="frmArticulos" enctype="multipart/form-data">
+                    <!-- enctype="multipart/form-data"  esto permite enviar archivos-->
                     <label>Categoria</label>
                     <select class="form-control input-sm" id="categoriaSelect" name="categoriaSelect">
                         <option value="A">Selecciona Categoria</option>
+                        <?php while($ver=mysqli_fetch_row($result)): ?>
+                        <option value="<?php echo $ver[0] ?>"><?php echo $ver[1]; ?></option>
+                        <?php endwhile; ?>
                     </select>
                     <label>Nombre</label>
                     <input type="text" class="form-control input-sm" id="nombre" name="nombre">
@@ -50,8 +60,10 @@
 
 </html>
 
+
+
 <script type="text/javascript">
-$(document).ready(function(){
+$(document).ready(function() {
     $('#tablaArticulosLoad').load("articulos/tablaArticulos.php");
 
     $('#btnAgregarArticulo').click(function() {
@@ -59,23 +71,32 @@ $(document).ready(function(){
         vacios = validarFormVacio('frmArticulos');
 
         if (vacios > 0) {
-            alertify.alert("Mensaje", "Debes llenar todos los campos");
+            alertify.alert("Debes llenar todos los campos");
             return false;
         }
 
-        datos = $('#frmArticulos').serialize();
+        var formData = new FormData(document.getElementById("frmArticulos"));
+
         $.ajax({
-            type: "POST",
-            data: datos,
-            url: "../procesos/articulos/agregarArticulos.php",
-            success:function(r) {
-                if (r==1) {
+            url: "../procesos/articulos/insertaArticulos.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+
+            success: function(r) {
+                if (r == 1) {
+                    $('#frmArticulos')[0].reset();
+                    $('#tablaArticulosLoad').load("articulos/tablaArticulos.php");
                     alertify.success("Agregado con exito");
                 } else {
-                    alertify.error("No se pudo agregar");
+                    alertify.error("Fallo al subir el archivo");
                 }
             }
         });
+
     });
 });
 </script>
@@ -83,7 +104,7 @@ $(document).ready(function(){
 
 
 <?php
-    }else{
-        header("location:../index.php");
-    }
+}else{
+	header("location:../index.php");
+}
 ?>
